@@ -1,0 +1,27 @@
+HttpPort 8080
+RtspPort 554
+HttpBindAddress 0.0.0.0
+MaxClients 1000
+MaxBandwidth 10000
+
+<Feed feed1.ffm>
+  File /tmp/feed1.ffm
+  FileMaxSize 200K
+</Feed>
+
+<Stream <STREAM_NAME>>
+  Feed feed1.ffm
+  Format rtp
+  VideoCodec <STREAM_VIDEO_CODEC>
+  VideoFrameRate <STREAM_VIDEO_FRAMERATE> 
+  VideoBufferSize 80000
+  VideoBitRate 100
+  #VideoQMin 1
+  #VideoQMax 5
+  VideoSize <STREAM_VIDEO_SIZE>
+  Noaudio
+</Stream>
+
+<Stream stats.html>
+  Format status
+</Stream>
