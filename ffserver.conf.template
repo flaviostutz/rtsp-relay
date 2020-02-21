@@ -9,16 +9,16 @@ MaxBandwidth 10000
   FileMaxSize 200K
 </Feed>
 
-<Stream <STREAM_NAME>>
+<Stream $STREAM_NAME>
   Feed feed1.ffm
   Format rtp
-  VideoCodec <STREAM_VIDEO_CODEC>
-  VideoFrameRate <STREAM_VIDEO_FRAMERATE> 
+  VideoCodec $STREAM_VIDEO_CODEC
+  VideoFrameRate $STREAM_VIDEO_FRAMERATE 
   VideoBufferSize 80000
   VideoBitRate 100
   #VideoQMin 1
   #VideoQMax 5
-  VideoSize <STREAM_VIDEO_SIZE>
+  VideoSize $STREAM_VIDEO_SIZE
   Noaudio
 </Stream>
 

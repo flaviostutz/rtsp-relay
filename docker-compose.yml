@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+
+  rtsp-relay:
+    build: .
+    image: flaviostutz/rtsp-relay
+    ports: 
+      - 554:554
+      - 9090:8080
+    restart: always
+    environment:
+        - SOURCE_URL=http://ip-thomasmarina.greatlakescam.com/user/cgi-bin/getstream.cgi?10&&&&0&0&0&0&0
