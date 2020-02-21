@@ -1,5 +1,8 @@
 # rtsp-relay
-RTSP stream relay server with codec passthrough, so that no encoding will take place.
+RTSP stream relay server with codec passthrough, so that no encoding will take place and low CPU will be used.
+
+Any input URL handled by ffmpeg can be used, but keep in mind that no transcoding will take place to the output rtsp stream.
+
 This is based on ffmpeg and https://github.com/aler9/rtsp-simple-server.
 
 ## Usage
@@ -23,3 +26,8 @@ services:
 * VLC -> File -> Open Network... -> URL "rtsp://localhost:8554/stream" -> Open
 
 * The restreamed image may appear
+
+# ENVs
+
+* SOURCE_URL - source media URL to be used as input for RTSP stream. Cannot be empty
+* STREAM_NAME - path for "rtsp://[host]:[port]/[STREAM_NAME]. default to 'stream'
