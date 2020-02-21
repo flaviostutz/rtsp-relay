@@ -3,6 +3,8 @@ RTSP stream relay server with codec passthrough, so that no encoding will take p
 
 Any input URL handled by ffmpeg can be used, but keep in mind that no transcoding will take place to the output rtsp stream.
 
+Multiple clients can connect to the same stream.
+
 This is based on ffmpeg and https://github.com/aler9/rtsp-simple-server.
 
 ## Usage
