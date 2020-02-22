@@ -14,7 +14,7 @@ services:
       # - SOURCE_URL=http://wmccpinetop.axiscam.net/mjpg/video.mjpg
       - SOURCE_URL=rtsp://freja.hiof.no:1935/rtplive/definst/hessdalen03.stream
       - RTSP_PROXY_SOURCE_TCP=yes
-      # - FORCE_FFMPEG=true
+      # - FORCE_FFMPEG_SOURCE=true
       # - SOURCE_URL=http://ip-thomasmarina.greatlakescam.com/user/cgi-bin/getstream.cgi?10&&&&0&0&0&0&0
 
   rtsp-relay2:
