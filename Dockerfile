@@ -26,11 +26,10 @@ FROM jrottenberg/ffmpeg:3.3-alpine
 EXPOSE 8554
 EXPOSE 8000
 EXPOSE 8001
-EXPOSE 8050
-EXPOSE 8051
 
 ENV SOURCE_URL ''
 ENV STREAM_NAME 'stream'
+ENV RTSP_PROXY_SOURCE_TCP 'no'
 ENV FORCE_FFMPEG 'false'
 
 RUN apk --update add gettext bash

@@ -7,11 +7,13 @@ services:
     image: flaviostutz/rtsp-relay
     ports: 
       - 8554:8554
-      - 9000:8000
-      - 9001:8001
+      - 8000:8000
+      - 8001:8001
     environment:
       # - SOURCE_URL=http://93.87.72.254:8090/mjpg/video.mjpg
-      - SOURCE_URL=rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov
+      # - SOURCE_URL=http://wmccpinetop.axiscam.net/mjpg/video.mjpg
+      - SOURCE_URL=rtsp://freja.hiof.no:1935/rtplive/definst/hessdalen03.stream
+      - RTSP_PROXY_SOURCE_TCP=yes
       - FORCE_FFMPEG=true
       # - SOURCE_URL=http://ip-thomasmarina.greatlakescam.com/user/cgi-bin/getstream.cgi?10&&&&0&0&0&0&0
 
@@ -20,8 +22,8 @@ services:
     image: flaviostutz/rtsp-relay
     ports: 
       - 9554:8554
-      - 9050:8050
-      - 9051:8051
+      - 9000:8000
+      - 9001:8001
     environment:
         - SOURCE_URL=rtsp://rtsp-relay:8554/stream
 
@@ -30,8 +32,8 @@ services:
     image: flaviostutz/rtsp-relay
     ports: 
       - 10554:8554
-      - 10050:8050
-      - 10051:8051
+      - 10000:8000
+      - 10001:8001
     environment:
       - SOURCE_URL=rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov
       - FORCE_FFMPEG=true

@@ -7,6 +7,13 @@ Multiple clients can connect to the same stream.
 
 This is based on ffmpeg, https://github.com/aler9/rtsp-simple-server and https://github.com/aler9/rtsp-simple-proxy.
 
+Exposed ports:
+
+* RTSP UDP/TCP listener: 8554
+* RTP UDP listener: 8000
+* RTCP UDP listener: 8001
+
+
 ## Usage
 
 * create docker-compose.yml
@@ -32,5 +39,6 @@ services:
 # ENVs
 
 * SOURCE_URL - source media URL to be used as input for RTSP stream. Cannot be empty
+* RTSP_PROXY_SOURCE_TCP - whetever source RTSP stream is UDP ('no') or TCP ('yes'). defaults to no
 * STREAM_NAME - path for "rtsp://[host]:[port]/[STREAM_NAME]. default to 'stream'
 * FORCE_FFMPEG - use RTSP proxy when in/out are RTSP streams or use FFMPEG restream even in this case. defaults to false. use for CPU usage comparisons
