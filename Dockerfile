@@ -30,7 +30,7 @@ EXPOSE 8001
 ENV SOURCE_URL ''
 ENV STREAM_NAME 'stream'
 ENV RTSP_PROXY_SOURCE_TCP 'no'
-ENV FORCE_FFMPEG 'false'
+ENV FORCE_FFMPEG 'true'
 
 RUN apk --update add gettext bash
 
