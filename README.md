@@ -5,7 +5,7 @@ Any input URL handled by ffmpeg can be used, but keep in mind that no transcodin
 
 Multiple clients can connect to the same stream.
 
-This is based on ffmpeg and https://github.com/aler9/rtsp-simple-server.
+This is based on ffmpeg, https://github.com/aler9/rtsp-simple-server and https://github.com/aler9/rtsp-simple-proxy.
 
 ## Usage
 
