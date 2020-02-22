@@ -7,10 +7,22 @@ if [ "$SOURCE_URL" == "" ]; then
    exit 1
 fi
 
+if [[ $SOURCE_URL == rtsp://* ]]; then
+   envsubst < /tmp/proxy.yml > /proxy.yml
+   echo "/proxy.yml"
+   cat /proxy.yml
+   echo "Starting rtsp proxy from $SOURCE_URL to rtsp://0.0.0.0:8554/$STREAM_NAME..."
+   rtsp-simple-proxy /proxy.yml
 
-echo "Starting rtsp server daemon..."
-rtsp-simple-server &
-sleep 2
+else
+   echo "Starting rtsp server for custom source URL..."
+   rtsp-simple-server &
+   sleep 2
 
-echo "Start relaying from $SOURCE_URL to RTSP at rtsp://0.0.0.0:8554/$STREAM_NAME"
-ffmpeg -i $SOURCE_URL -c copy -f rtsp rtsp://127.0.0.1:8554/$STREAM_NAME
+   echo "Start relaying from $SOURCE_URL to rtsp://0.0.0.0:8554/$STREAM_NAME"
+   while true; do
+      ffmpeg -i $SOURCE_URL -c copy -f rtsp rtsp://127.0.0.1:8554/$STREAM_NAME
+      echo "Reconnecting..."
+      sleep 1
+   done
+fi
