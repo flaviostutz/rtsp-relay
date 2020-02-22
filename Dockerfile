@@ -31,6 +31,7 @@ EXPOSE 8051
 
 ENV SOURCE_URL ''
 ENV STREAM_NAME 'stream'
+ENV FORCE_FFMPEG 'false'
 
 RUN apk --update add gettext bash
 

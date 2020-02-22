@@ -33,3 +33,4 @@ services:
 
 * SOURCE_URL - source media URL to be used as input for RTSP stream. Cannot be empty
 * STREAM_NAME - path for "rtsp://[host]:[port]/[STREAM_NAME]. default to 'stream'
+* FORCE_FFMPEG - use RTSP proxy when in/out are RTSP streams or use FFMPEG restream even in this case. defaults to false. use for CPU usage comparisons

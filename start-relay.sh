@@ -7,7 +7,7 @@ if [ "$SOURCE_URL" == "" ]; then
    exit 1
 fi
 
-if [[ $SOURCE_URL == rtsp://* ]]; then
+if [[ $SOURCE_URL == rtsp://* ]] && [ "$FORCE_FFMPEG" == "false" ]; then
    envsubst < /tmp/proxy.yml > /proxy.yml
    echo "/proxy.yml"
    cat /proxy.yml

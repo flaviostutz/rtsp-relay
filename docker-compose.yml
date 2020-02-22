@@ -10,7 +10,10 @@ services:
       - 9000:8000
       - 9001:8001
     environment:
-      - SOURCE_URL=http://ip-thomasmarina.greatlakescam.com/user/cgi-bin/getstream.cgi?10&&&&0&0&0&0&0
+      # - SOURCE_URL=http://93.87.72.254:8090/mjpg/video.mjpg
+      - SOURCE_URL=rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov
+      - FORCE_FFMPEG=true
+      # - SOURCE_URL=http://ip-thomasmarina.greatlakescam.com/user/cgi-bin/getstream.cgi?10&&&&0&0&0&0&0
 
   rtsp-relay2:
     build: .
@@ -31,4 +34,5 @@ services:
       - 10051:8051
     environment:
       - SOURCE_URL=rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov
+      - FORCE_FFMPEG=true
       
