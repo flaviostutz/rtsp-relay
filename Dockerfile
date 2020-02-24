@@ -21,7 +21,7 @@ RUN go build -o /go/bin/rtsp-simple-proxy .
 
 
 
-FROM jrottenberg/ffmpeg:3.3-alpine
+FROM jrottenberg/ffmpeg:4.0-alpine
 
 EXPOSE 8554
 EXPOSE 8000
@@ -31,7 +31,8 @@ ENV SOURCE_URL ''
 ENV STREAM_NAME 'stream'
 ENV RTSP_PROXY_SOURCE_TCP 'yes'
 ENV FORCE_FFMPEG 'true'
-ENV FFMPEG_ARGS ''
+ENV FFMPEG_INPUT_ARGS ''
+ENV FFMPEG_OUTPUT_ARGS='-c copy'
 
 RUN apk --update add gettext bash
 

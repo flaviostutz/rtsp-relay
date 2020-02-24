@@ -2,6 +2,10 @@
 
 set -e
 
+if [[ $SOURCE_URL == file://* ]]; then
+   export FFMPEG_INPUT_ARGS="$FFMPEG_INPUT_ARGS -re -stream_loop -1"
+fi
+
 if [[ $SOURCE_URL == rtsp://* ]] && [ "$FORCE_FFMPEG_SOURCE" == "false" ]; then
    envsubst < /tmp/proxy.yml > /proxy.yml
    echo "/proxy.yml"
@@ -18,7 +22,9 @@ else
 
       echo "Start relaying from $SOURCE_URL to rtsp://0.0.0.0:8554/$STREAM_NAME"
       while true; do
-         ffmpeg $FFMPEG_ARGS -i $SOURCE_URL -c copy -f rtsp rtsp://127.0.0.1:8554/$STREAM_NAME
+         set -x
+         ffmpeg $FFMPEG_INPUT_ARGS -i $SOURCE_URL $FFMPEG_OUTPUT_ARGS -f rtsp rtsp://127.0.0.1:8554/$STREAM_NAME
+         set +x
          echo "Reconnecting..."
          sleep 1
       done

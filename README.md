@@ -43,3 +43,5 @@ services:
 * STREAM_NAME - path for "rtsp://[host]:[port]/[STREAM_NAME]. default to 'stream'
 * FORCE_FFMPEG_SOURCE - use RTSP proxy when in/out (false) are RTSP streams or force to use FFMPEG restream even in this case (true). defaults to false. use for CPU usage comparisons
 * FFMPEG_ARGS - additional arguments to ffmpeg publisher. ex: "-err_detect aggressive -fflags discardcorrupt"
+* FFMPEG_INPUT_ARGS - ffmpeg args applied near input params. ex.: '-v 10'. defaults to ''
+* FFMPEG_OUTPUT_ARGS - ffmpeg args applied near output params. ex.: '-vcodec h264'. defaults to '-c copy' so that no transcoding will be done by default.
