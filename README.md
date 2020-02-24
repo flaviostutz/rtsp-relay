@@ -25,7 +25,7 @@ services:
 
   rtsp-relay:
     image: flaviostutz/rtsp-relay
-    ports: 
+    ports:
       - 8554:8554
     restart: always
     environment:
@@ -36,7 +36,7 @@ services:
 
 * The restreamed image may appear
 
-# ENVs
+## ENVs
 
 * SOURCE_URL - source media URL to be used as input for RTSP stream. Cannot be empty
 * RTSP_PROXY_SOURCE_TCP - whetever source RTSP stream is UDP ('no') or TCP ('yes'). defaults to no
@@ -45,3 +45,27 @@ services:
 * FFMPEG_ARGS - additional arguments to ffmpeg publisher. ex: "-err_detect aggressive -fflags discardcorrupt"
 * FFMPEG_INPUT_ARGS - ffmpeg args applied near input params. ex.: '-v 10'. defaults to ''
 * FFMPEG_OUTPUT_ARGS - ffmpeg args applied near output params. ex.: '-vcodec h264'. defaults to '-c copy' so that no transcoding will be done by default.
+
+## Tips
+
+* If you wish to create an RTSP feed from a video file in loop
+
+  * Place the video file in directory 'samples'
+
+  * Create docker-compose.yml:
+
+```yml
+  rtsp-relay:
+    image: flaviostutz/rtsp-relay
+    ports:
+        - 8554:8554
+    environment:
+        - SOURCE_URL=file:///samples/cars1.mp4
+    volumes:
+        - ./samples:/samples
+```
+
+  * Run docker-compose up
+
+  * Connect your RTSP client (VLC etc)
+
