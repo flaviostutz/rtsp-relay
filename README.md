@@ -1,4 +1,7 @@
 # rtsp-relay
+
+<img src="https://img.shields.io/docker/automated/flaviostutz/rtsp-relay"/>
+
 RTSP stream relay server with codec passthrough, so that no encoding will take place and low CPU will be used.
 
 Any input URL handled by ffmpeg can be used, but keep in mind that no transcoding will take place to the output rtsp stream.
