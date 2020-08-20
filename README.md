@@ -1,7 +1,8 @@
 # rtsp-relay
 
 [<img src="https://img.shields.io/docker/pulls/flaviostutz/rtsp-relay"/>](https://hub.docker.com/r/flaviostutz/rtsp-relay)
-<img src="https://img.shields.io/docker/automated/flaviostutz/rtsp-relay"/>
+<img src="https://img.shields.io/docker/automated/flaviostutz/rtsp-relay"/><br/>
+[<img src="https://goreportcard.com/badge/github.com/flaviostutz/promster"/>](https://goreportcard.com/report/github.com/flaviostutz/promster)
 
 RTSP stream relay server with codec passthrough, so that no encoding will take place and low CPU will be used.
 
