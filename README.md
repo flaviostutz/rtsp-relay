@@ -73,3 +73,7 @@ services:
 
   * Connect your RTSP client (VLC etc)
 
+  * If you need a Kubernetes version of this tool, check https://github.com/kerberos-io/virtual-rtsp
+
+
+
